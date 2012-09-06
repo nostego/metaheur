@@ -11,12 +11,12 @@ Problem::Problem(int n) :
   size(n)
 {
   srand(time(NULL));
+  t = 40.0;
   initialize();
 }
 
 void Problem::draw(sf::RenderWindow& App)
 {
-
   for (size_t nb = 0; nb < blocs.size(); ++nb)
   {
     Bloc b = blocs[nb];
@@ -36,9 +36,23 @@ void Problem::draw(sf::RenderWindow& App)
   for (int y = 0; y < size; ++y)
     for (int x = 0; x < size; ++x)
     {
-      App.Draw(sf::Shape::Rectangle(TOPOS(x), TOPOS(y),
-                                    TOPOS(x) + W_RECT, TOPOS(y) + W_RECT,
-                                    sf::Color(200, 200, 200)));
+      Bloc b = blocs[x + y * size];
+      size_t ret = 0;
+      for (size_t l = 0; l < b.links.size(); ++l)
+      {
+	Bloc d = blocs[b.links[l]];
+
+	ret += fabs(d.x - b.x) + fabs(d.y - b.y);
+      }
+
+      if (ret <= b.links.size())
+	App.Draw(sf::Shape::Rectangle(TOPOS(x), TOPOS(y),
+				    TOPOS(x) + W_RECT, TOPOS(y) + W_RECT,
+				      sf::Color(200, 200, 200)));
+      else
+	App.Draw(sf::Shape::Rectangle(TOPOS(x), TOPOS(y),
+				    TOPOS(x) + W_RECT, TOPOS(y) + W_RECT,
+				      sf::Color(200, 0, 0)));
     }
 }
 

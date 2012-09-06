@@ -32,7 +32,7 @@ public:
 
   int lastn;
   int lastm;
-
+  double t;
 };
 
 #endif // !PROBLEM_HH_
