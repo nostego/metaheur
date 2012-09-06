@@ -40,7 +40,7 @@ int main ()
     {
       if (p.t <= 0.0)
 	p.undo();
-      else if ((exp(-(p.cost() - lcost) / p.t) < 0.5))
+      else if (((rand() % 100000) / 100000.0) > (exp(-(p.cost() - lcost) / p.t)))
 	p.undo();
     }
     ++iter;
