@@ -22,7 +22,7 @@ int main ()
         App.Close();
     }
     
-    if (iter == 0)
+    if (iter % 500 == 0)
     {
       std::cout << "Temperature = "
 		<< p.t
