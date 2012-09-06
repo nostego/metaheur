@@ -8,6 +8,7 @@ int main ()
 {
   int p_size = 5;
   Problem p(p_size);
+  double lcost = p.cost();
   sf::RenderWindow App(sf::VideoMode(p_size * 100,
 				     p_size * 100, 32), "Metaheuristique");
 
@@ -22,6 +23,11 @@ int main ()
     App.Clear();
     p.draw(App);
     App.Display();
+    p.random_permutation();
+    if (p.cost() > lcost)
+      p.undo();
+    lcost = p.cost();
+    std::cout << p.cost() << std::endl;
   }
   return 0;
 }

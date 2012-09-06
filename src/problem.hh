@@ -22,10 +22,17 @@ public:
   void initialize();
   void draw(sf::RenderWindow& App);
 
-  void random_permutation();
+  double cost();
+  void undo();
 
+  void random_permutation();
+  void permutation(int n, int m);
   int size;
   std::vector<Bloc> blocs;
+
+  int lastn;
+  int lastm;
+
 };
 
 #endif // !PROBLEM_HH_
