@@ -1,4 +1,8 @@
+#include <ctime>
+#include <iostream>
+
 #include "problem.hh"
+
 #define OFFSET 20
 #define W_RECT 50
 #define TOPOS(X) OFFSET + 100 * X
@@ -6,6 +10,7 @@
 Problem::Problem(int n) :
   size(n)
 {
+  srand(time(NULL));
   initialize();
 }
 
@@ -56,5 +61,32 @@ void Problem::initialize()
 	b.links.push_back((y + 1) * size + x);
       blocs.push_back(b);
     }
+
+  for (int iter = 0; iter < 1000; ++iter)
+    random_permutation();
+}
+
+void Problem::random_permutation()
+{
+  int n;
+  int m;
+
+  n = rand() % (size * size);
+  m = rand() % (size * size);
+
+  if (n != m)
+  {
+    int tmpx;
+    int tmpy;
+
+    tmpx = blocs[n].x;
+    tmpy = blocs[n].y;
+
+    blocs[n].x = blocs[m].x;
+    blocs[n].y = blocs[m].y;
+
+    blocs[m].x = tmpx;
+    blocs[m].y = tmpy;
+  }
 }
 

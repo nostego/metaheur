@@ -22,6 +22,8 @@ public:
   void initialize();
   void draw(sf::RenderWindow& App);
 
+  void random_permutation();
+
   int size;
   std::vector<Bloc> blocs;
 };
