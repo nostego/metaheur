@@ -1,7 +1,7 @@
 #ifndef PROBLEM_HH_
 # define PROBLEM_HH_
 
-# define POPULATION_SIZE 1000
+# define POPULATION_SIZE 10000
 
 # include <vector>
 

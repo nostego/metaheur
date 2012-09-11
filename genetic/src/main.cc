@@ -35,7 +35,27 @@ struct Michalewicz : public Regression
 
       for (size_t k = 0; k < a.size(); ++k)
       {
-	ret += sin(a[k])*pow((sin((k + 1) * a[k] * a[k])) / M_PI, 20);
+	ret += sin(a[k]) *
+	  pow(sin(((k + 1) * a[k] * a[k]) / M_PI),
+	      20.0);
+      }
+      return ret;
+    }
+};
+
+struct Dejong3 : public Regression
+{
+  virtual double cost(std::vector<double> a)
+    {
+      double ret = 0.0;
+      
+      for (size_t k = 0; k < a.size(); ++k)
+      {
+	int signe = (a[k] < 0.0);
+
+	if (!signe)
+	  signe = -1;
+	ret += signe * (-1) * ceil(fabs(a[k]));
       }
       return ret;
     }
@@ -43,10 +63,10 @@ struct Michalewicz : public Regression
 
 int main ()
 {
-  Problem<Michalewicz> p(2, 0, M_PI);
+  Problem<Dejong3> p(2, -5.12, 5.12);
 
-  for (size_t iter = 0; iter < 100; ++iter)
-    p.process();
+  //for (size_t iter = 0; iter < 10; ++iter)
+  //  p.process();
   p.print_best();
   return 0;
 }
