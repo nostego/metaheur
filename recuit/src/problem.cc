@@ -10,7 +10,7 @@
 Problem::Problem(int n) :
   size(n)
 {
-  srand(time(NULL));
+  srand(0);
   t = 40.0;
   initialize();
 }

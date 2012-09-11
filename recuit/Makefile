@@ -1,4 +1,4 @@
-CFLAGS=-W -Wall -Wextra
+CFLAGS=-W -Wall -Wextra -O3
 LINK=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 #LINK=-L /lrde/beyrouth/lrde-2013/lenoir/NostEgo/game -lsfml-graphics -lsfml-network -lsfml-system -lsfml-window
 CC=g++
