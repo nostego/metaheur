@@ -42,7 +42,7 @@ int main ()
     {
       if (p.t <= 0.0)
 	p.undo();
-      else if (((rand() % 100000) / 100000.0) > (exp(-(p.cost() - lcost) / p.t)))
+      else if (((rand()) / (double)RAND_MAX) > (exp(-(p.cost() - lcost) / p.t)))
 	p.undo();
     }
     ++iter;
