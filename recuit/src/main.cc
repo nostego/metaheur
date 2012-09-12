@@ -9,6 +9,7 @@ int main ()
   int p_size = 5;
   Problem p(p_size);
   int iter = 0;
+  int count = 0;
   double lcost = p.cost();
   sf::RenderWindow App(sf::VideoMode(p_size * 100,
 				     p_size * 100, 32), "Metaheuristique");
@@ -21,7 +22,7 @@ int main ()
       if (Event.Type == sf::Event::Closed)
         App.Close();
     }
-    
+
     if (iter % 500 == 0)
     {
       std::cout << "Temperature = "
@@ -36,6 +37,7 @@ int main ()
     }
 
     p.random_permutation();
+
     if (p.cost() > lcost)
     {
       if (p.t <= 0.0)

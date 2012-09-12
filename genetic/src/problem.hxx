@@ -43,7 +43,20 @@ void Problem<T>::print_best()
     std::cout << std::endl;
   }
 }
+template <class T>
+void Problem<T>::reproduce(std::vector<double>& a,
+                 std::vector<double>& b)
+{
+    std::vector<double> c;
 
+    for (int k = 0; k < nvar; ++k)
+    {
+        if (rand() % 2)
+            c.push_back(a[k]);
+        else
+            c.push_back(b[k]);
+    }
+}
 
 template <class T>
 void Problem<T>::clone(std::vector<double> a)
@@ -70,5 +83,7 @@ void Problem<T>::process()
     clone(individus[k]);
     mutation(individus[k]);
   }
+  for (size_t k = 0; k < POPULATION_SIZE - 1; k += 2)
+    reproduce(individus[k], individus[k + 1]);
   sort(individus.begin(), individus.end(), comp);
 }

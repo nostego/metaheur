@@ -39,7 +39,7 @@ struct Michalewicz : public Regression
 	  pow(sin(((k + 1) * a[k] * a[k]) / M_PI),
 	      20.0);
       }
-      return ret;
+      return -ret;
     }
 };
 
@@ -48,7 +48,7 @@ struct Dejong3 : public Regression
   virtual double cost(std::vector<double> a)
     {
       double ret = 0.0;
-      
+
       for (size_t k = 0; k < a.size(); ++k)
       {
 	int signe = (a[k] < 0.0);
@@ -61,12 +61,27 @@ struct Dejong3 : public Regression
     }
 };
 
+struct Schwefel : public Regression
+{
+  virtual double cost(std::vector<double> a)
+    {
+      double ret = 0.0;
+
+      for (size_t k = 0; k < a.size(); ++k)
+      {
+         ret -= a[k] * sin(sqrt(fabs(a[k])));
+      }
+      return ret;
+    }
+};
 int main ()
 {
-  Problem<Dejong3> p(2, -5.12, 5.12);
+  Problem<Schwefel> p(10, -500, 500);
+    std::vector<double> a;
 
-  //for (size_t iter = 0; iter < 10; ++iter)
-  //  p.process();
+
+  for (size_t iter = 0; iter < 1000; ++iter)
+    p.process();
   p.print_best();
   return 0;
 }

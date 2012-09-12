@@ -1,7 +1,7 @@
 #ifndef PROBLEM_HH_
 # define PROBLEM_HH_
 
-# define POPULATION_SIZE 10000
+# define POPULATION_SIZE 100
 
 # include <vector>
 
@@ -17,6 +17,8 @@ public:
 
   void clone(std::vector<double> a);
   void mutation(std::vector<double>& a);
+  void reproduce(std::vector<double>& a,
+                 std::vector<double>& b);
   T comp;
   int nvar;
   double low;
