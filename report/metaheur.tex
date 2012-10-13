@@ -134,7 +134,16 @@ existantes.
 
 \subsection{Benchmarks}
 
-
+Les benchmarks de la programmation génétique ont été réalisé sur des
+fonctions à minimiser. Les minimums globaux de cette fonction sont
+connus et ainsi on pourra vérifier que le minimum global est
+atteint.\\ Ci-dessous la fonction Schwefel de la forme:
+$$SH(x) = \sum_{i=1}^{n}{-x_i\sin{(\sqrt{\mid{}x_i\mid{}})}}$$ Un
+individu est caracterisé par ses gènes, ici ce sont les $x_i$.  La
+figure \ref{geneticschwefel} montre ici l'évolution de la fonction de
+Schwefel à 10 variables/gènes au fil des génerations. On observe que
+l'algorithme converge bien vers le minimum global connu qui est de
+-4189.829.
 \begin{figure}[H]
   \centering
   \includegraphics[width=300px]{genetic_schwefel.png}
@@ -142,6 +151,9 @@ existantes.
   \label{geneticschwefel}
 \end{figure}
 
+On peut observer que la convergence est rapide même si la population
+était seulement de 100 individus et que chaque individus avait 10
+gènes.
 
 \chapter{Conclusion}
 
