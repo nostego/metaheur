@@ -88,8 +88,48 @@ encore lorsqu'on ne connaît pas de méthodes pour résoudre le problème.
 \chapter{Algorithmes}
 
 \section{Recuit simulé}
+%Parle vite fais que c'est une methode qui nous vient de la
+%metallurgie, j'y fais reference apres
 
 \section{Programmation génétique}
+
+Tout comme le recuit simulé, la programmation génétique est une
+métaheuristique inspirée d'un autre mécanisme : la sélection
+naturelle, expliqué par Charles Darwin.
+
+La sélection naturelle explique l'adaptation des espèces à leur
+environnement au fil des génerations. Son principe est simple et
+explique que les caractéristiques favorisant la survie/reproduction
+d'un individu augmentent en fréquence car l'individu aura plus
+tendance à se reproduire/survivre et par conséquent avoir des
+descendants et les descendants auront eux aussi cette même
+caractéristique favorable à la survie.\\\\
+
+La programmation génétique fonctionne de la même manière, on va
+modéliser notre problème de la même manière en utilisant le même
+vocabulaire: reproduction, individu, population, séléction.\\\\
+
+La fonction à maximiser/minimiser est appelée fonction de fitness et
+indique si un individu "fit"/est adapté à son environnement.\\\\
+
+Le principe de l'algorithme est simple:
+\begin{enumerate}
+\item Initialisation aléatoire d'une population
+\item Reproduction de la population : cross-over, mutation
+\item \'Evaluation de fitness pour chaque individu de la population
+\item Sélection des individus les plus adaptés (ayant la fitness la plus élevé)
+\item Répeter étape 2,3,4 jusqu'à convergence
+\end{enumerate}
+
+Il faut noter que même si la programmation génétique est une méthode
+de résolution très abstraite, elle nécessite un certain nombre de
+paramètres : la taille de la population initial, le nombre de
+cross-over/mutation, le nombre d'individus sélectionnés à l'étape 4.
+De plus il faut noter que tout comme dans la sélection naturelle, la
+mutation est primordiale à l'évolution, en effet elle permet
+d'introduire de nouvelles caractéristiques dans une population. Sans
+celà on ne ferait que des combinaisons de caractéristiques déjà
+existantes.
 
 \chapter{Benchmarks}
 
