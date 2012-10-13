@@ -13,7 +13,7 @@
 \newcommand{\Spvek}[2][r]{%
   \gdef\@VORNE{1}
   \left(\hskip-\arraycolsep%
-    \begin{array}{#1}\vekSp@lten{#2}\end{array}%
+  \begin{array}{#1}\vekSp@lten{#2}\end{array}%
   \hskip-\arraycolsep\right)}
 
 \def\vekSp@lten#1{\xvekSp@lten#1;vekL@stLine;}
@@ -21,10 +21,10 @@
 \def\xvekSp@lten#1;{\def\temp{#1}%
   \ifx\temp\vekL@stLine
   \else
-    \ifnum\@VORNE=1\gdef\@VORNE{0}
-    \else\@arraycr\fi%
-    #1%
-    \expandafter\xvekSp@lten
+  \ifnum\@VORNE=1\gdef\@VORNE{0}
+  \else\@arraycr\fi%
+  #1%
+  \expandafter\xvekSp@lten
   \fi}
 \makeatother
 
@@ -34,28 +34,28 @@
 
 \begin{titlepage}
 
-\begin{center}
+  \begin{center}
 
-\textsc{\LARGE Rapport}\\[1.5cm]
+    \textsc{\LARGE Rapport}\\[1.5cm]
 
-\textsc{\Large EPITA}\\[0.5cm]
+    \textsc{\Large EPITA}\\[0.5cm]
 
-\HRule \\[0.4cm]
-{ \huge \bfseries Métaheuristiques pour l'optimisation difficile}\\[0.4cm]
+    \HRule \\[0.4cm]
+           { \huge \bfseries Métaheuristiques pour l'optimisation difficile}\\[0.4cm]
 
-\HRule \\[1.5cm]
+           \HRule \\[1.5cm]
 
-\large
-\emph{Auteurs:}\\
-Loïc \textsc{Bethmont}\\
-Victor \textsc{Lenoir}\\
+           \large
+           \emph{Auteurs:}\\
+           Loïc \textsc{Bethmont}\\
+           Victor \textsc{Lenoir}\\
 
-\vfill
+           \vfill
 
-% Bottom of the page
-{\large \today}
+           % Bottom of the page
+           {\large \today}
 
-\end{center}
+  \end{center}
 
 \end{titlepage}
 %\maketitle
@@ -90,6 +90,7 @@ encore lorsqu'on ne connaît pas de méthodes pour résoudre le problème.
 \section{Recuit simulé}
 %Parle vite fais que c'est une methode qui nous vient de la
 %metallurgie, j'y fais reference apres
+\subsection{Benchmarks}
 
 \section{Programmation génétique}
 
@@ -131,7 +132,16 @@ d'introduire de nouvelles caractéristiques dans une population. Sans
 celà on ne ferait que des combinaisons de caractéristiques déjà
 existantes.
 
-\chapter{Benchmarks}
+\subsection{Benchmarks}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=300px]{genetic_schwefel.png}
+  \caption{Minimum de la fonction de Schwefel au fil des génerations}
+  \label{geneticschwefel}
+\end{figure}
+
 
 \chapter{Conclusion}
 
